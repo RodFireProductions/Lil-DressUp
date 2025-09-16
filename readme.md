@@ -1,3 +1,3 @@
-# Lil'DressUp
+# Lil'Dress Up
 
 Dress Up game templates.
