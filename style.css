@@ -1,0 +1,33 @@
+:root {
+    --1             : #d9a7b0; /* pink */
+    --2             : #a7cbd9; /* blue */
+    --3             : #68a0a6; /* teal */
+    --4             : #f2e0d5; /* sand */
+    --5             : #a66f6f; /* red */
+
+    --outside-bg    : var(--3);
+    --main-bg       : var(--4);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background: var(--outside-bg);
+}
+
+main {
+    aspect-ratio: 3 / 2;
+    height: 100%;
+
+    background: var(--main-bg);
+}
+
+.hidden {
+    display: none;
+}

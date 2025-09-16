@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Lil-Dress Up</title>
+        <script src="configure.js" charset="utf-8"></script>
+        <script src="main.js" charset="utf-8"></script>
+    </head>
+    <body>
+
+        <main>
+            <section id="loading">
+                <noscript>You need to enable JavaScript to run this app.</noscript>
+                <p>Loading...</p>
+            </section>
+            <section id="title" class="hidden">
+                <button type="button" name="start">Start</button>
+            </section>
+            <section id="game" class="hidden">
+                <div class="grid">
+                    <div id="canvases"></div>
+                    <div class="options"></div>
+                </div>
+            </section>
+            <section id="finish" class="hidden">
+                <canvas id="final_dress"></canvas>
+                <div>
+                    <button type="button" name="back">Back</button>
+                    <button type="button" name="download">Download</button>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
