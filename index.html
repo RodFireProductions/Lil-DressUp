@@ -14,20 +14,29 @@
                 <div>Loading...</div>
             </section>
             <section id="title" class="hidden">
-                <button type="button" name="start">Start</button>
+                <div>
+                    <hgroup>
+                        <h1>Lil'Dress Up</h1>
+                        <p>A dress up game template!</p>
+                    </hgroup>
+
+                    <button type="button" name="start" id="start_b">Start</button>
+                </div>
             </section>
             <section id="game" class="hidden">
                 <div class="grid">
                     <div id="canvases"></div>
                     <div id="options"></div>
-                    <button type="button" name="finish">Finish</button>
+                    <div class="finish">
+                        <button type="button" name="finish" id="finish_b">Finish</button>
+                    </div>
                 </div>
             </section>
             <section id="finish" class="hidden">
                 <canvas id="final_dress"></canvas>
                 <div>
-                    <button type="button" name="back">Back</button>
-                    <button type="button" name="download">Download</button>
+                    <button type="button" name="back" id="back_b">Back</button>
+                    <button type="button" name="download" id="download_b">Download</button>
                 </div>
             </section>
         </main>

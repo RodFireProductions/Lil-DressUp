@@ -3,34 +3,17 @@
 
 let dressup_display = document.getElementById("canvases");
 let dressup_options = document.getElementById("options");
+let dressup_size = {
+    width: "500",
+    height: "500"
+}
 
 let layers = {
-    watermark: {
-        permanet: true,
+    background: {
+        permanent: false,
         images: [
-            "permanents/watermark.png"
-        ]
-    },
-    hair_top: {
-        permanet: false,
-        label: "Hair",
-        linked: [
-            "hair_bottom"
-        ],
-        images: [
-            "hairs/hair_01_front.png"
-        ]
-    },
-    body: {
-        permanet: true,
-        images: [
-            "permanents/body.png"
-        ]
-    },
-    hair_bottom: {
-        permanet: false,
-        images: [
-            "hairs/hair_01_back.png"
+            "backgrounds/bg_01.png",
+            "backgrounds/bg_02.png"
         ]
     },
     tail: {
@@ -40,15 +23,36 @@ let layers = {
             "tails/tail_01.png"
         ]
     },
-    background: {
+    hair_bottom: {
         permanent: false,
         images: [
-            "backgrounds/bg_01.png",
-            "backgrounds/bg_02.png"
+            "hairs/hair_01_back.png"
         ]
-    }
+    },
+    body: {
+        permanent: true,
+        images: [
+            "permanents/body.png"
+        ]
+    },
+    hair_top: {
+        permanent: false,
+        label: "Hair",
+        linked: [
+            "hair_bottom"
+        ],
+        images: [
+            "hairs/hair_01_front.png"
+        ]
+    },
+    watermark: {
+        permanent: true,
+        images: [
+            "permanents/watermark.png"
+        ]
+    },
 }
 
-let the_game = new DressUp(layers, dressup_display, dressup_options);
+let the_game = new DressUp(layers, dressup_size, dressup_display, dressup_options);
 
 loadDressUp(the_game);

@@ -32,6 +32,7 @@ html, body {
     background: var(--outside-bg);
     font-family: var(--font-main);
     font-size: var(--font-size);
+    line-height: 1.4;
 }
 
 main {
@@ -46,6 +47,22 @@ section {
     width: 100%;
 }
 
+button {
+    padding: 0em 1em;
+    border-radius: 5px;
+    border: none;
+    background: var(--5);
+    color: white;
+    cursor: pointer;
+    font-family: var(--font-main);
+
+    &:hover {
+        background: var(--1);
+    }
+}
+
+/**/
+
 #loading {
     display: flex;
     align-items: center;
@@ -53,6 +70,59 @@ section {
     font-size: 2em;
 }
 
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & div {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    & h1 {
+        margin: 0;
+    }
+
+    & button {
+        font-size: .4em;
+    }
+}
+
+#game {
+    & .grid {
+        display: grid;
+        padding: 1em;
+        grid-gap: .5em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "dressup options"
+                             "dressup finish";
+    }
+
+    & #canvases { grid-area: dressup; }
+    & #options { grid-area: options; }
+    & .finish {
+        grid-area: finish;
+        text-align: center;
+    }
+}
+
+#canvases {
+    padding: 0;
+    display: grid;
+    grid-gap: 0px;
+    grid-auto-flow: row;
+
+    & div, & canvas {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+    }
+}
+
+/**/
 
 .hidden {
     display: none !important;
