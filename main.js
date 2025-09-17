@@ -47,20 +47,21 @@ document.getElementById("back_b").addEventListener("click", function() {
 });
 
 document.getElementById("download_b").addEventListener("click", function() {
-    // TODO: download final canvas
+    // TODO: download final canvas, possibly move into DressUp
 });
 
 // This is where the magic happens
 
 class DressUp {
-    constructor(layers, size, display, options) {
+    constructor(layers, size, display, options, order) {
         this.layers = layers;
         this.size = size;
         this.display = display;
         this.options = options;
+        this.order = order;
         this.images = {};
         this.canvases = {};
-        this.current = [];
+        this.current = {};
     }
 
     preloadImages() {
@@ -110,13 +111,96 @@ class DressUp {
                 ctx.drawImage(this.images[i][0], 0, 0, this.size.width, this.size.height);
 
                 this.display.append(canvas);
-                this.canvases[i] = canvas;
+                this.canvases[i] = ctx;
+                this.current[i] = 0;
             }
             index++;
         }
     }
 
-    createOptions() {}
+    iterateOptions(option, which) {
+        switch (which) {
+            case "previous":
+                option.layers.forEach((layer, i) => {
+                    if (this.current[layer] != 0) {
+                        this.current[layer]--;
+                    } else {
+                        this.current[layer] = this.images[layer].length - 1;
+                    }
+                    this.canvases[layer].clearRect(0, 0, this.size.width, this.size.height);
+                    this.canvases[layer].drawImage(this.images[layer][this.current[layer]], 0, 0, this.size.width, this.size.height);
+                });
+                break;
+            case "next":
+                // TODO: Now this one!!
+                break;
+            default:
+                console.error("Something is wrong with iteration!");
+        }
+    }
+
+    createListeners(option) {
+        let self = this;
+        option.previous.addEventListener("click", function() {
+            self.iterateOptions(option, "previous");
+        });
+        option.next.addEventListener("click", function() {
+            self.iterateOptions(option, "next");
+        });
+    }
+
+    createOptions() {
+        let options = [];
+        for (const i in this.canvases) {
+            if (this.layers[i].label) {
+                let field = document.createElement("fieldset");
+                let label = document.createElement("legend");
+                label.innerHTML = this.layers[i].label;
+                field.append(label);
+
+                // buttons
+                let p_button = document.createElement("button");
+                let n_button = document.createElement("button");
+                p_button.innerHTML = "&#129032;";
+                n_button.innerHTML = "&#129034;";
+                p_button.setAttribute("type", "button");
+                n_button.setAttribute("type", "button");
+                p_button.setAttribute("name", "previous");
+                n_button.setAttribute("name", "next");
+
+                field.append(p_button);
+                field.append(n_button);
+
+                // layers
+                let layers = [];
+                layers.push(i);
+                if (this.layers[i].linked) {
+                    this.layers[i].linked.forEach((linked, j) => {
+                        layers.push(linked);
+                    });
+                }
+
+                //
+                let option = {
+                    label: this.layers[i].label,
+                    html: field,
+                    previous: p_button,
+                    next: n_button,
+                    layers: layers
+                }
+                options.push(option);
+                this.createListeners(option);
+            }
+        }
+
+        this.order.forEach((label, i) => {
+            let option = options.filter(obj => {
+                return obj.label === label;
+            });
+
+            this.options.append(option[0].html);
+        });
+    }
 
     async start() {
         this.preloadImages();

@@ -8,9 +8,16 @@ let dressup_size = {
     height: "500"
 }
 
+let options_order = [
+    "Hair",
+    "Tail",
+    "Background"
+]
+
 let layers = {
     background: {
         permanent: false,
+        label: "Background",
         images: [
             "backgrounds/bg_01.png",
             "backgrounds/bg_02.png"
@@ -53,6 +60,6 @@ let layers = {
     },
 }
 
-let the_game = new DressUp(layers, dressup_size, dressup_display, dressup_options);
+let the_game = new DressUp(layers, dressup_size, dressup_display, dressup_options, options_order);
 
 loadDressUp(the_game);
