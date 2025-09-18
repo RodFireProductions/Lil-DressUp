@@ -26,6 +26,7 @@ let layers = {
         permanent: false,
         label: "Background",
         images: [
+            "null.png",
             "backgrounds/bg_01.png",
             "backgrounds/bg_02.png",
             "backgrounds/bg_03.png",
@@ -38,6 +39,7 @@ let layers = {
         permanent: false,
         label: "Tail",
         images: [
+            "null.png",
             "tails/tail_01.png",
             "tails/tail_02.png",
             "tails/tail_03.png"
@@ -46,6 +48,7 @@ let layers = {
     hair_bottom: {
         permanent: false,
         images: [
+            "null.png",
             "hairs/hair_01_back.png",
             "hairs/hair_02_back.png",
             "hairs/hair_03_back.png"
@@ -83,6 +86,7 @@ let layers = {
             "hair_bottom"
         ],
         images: [
+            "null.png",
             "hairs/hair_01_front.png",
             "hairs/hair_02_front.png",
             "hairs/hair_03_front.png"
