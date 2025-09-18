@@ -3,6 +3,11 @@
 
 let dressup_display = document.getElementById("canvases");
 let dressup_options = document.getElementById("options");
+let dressup_download = document.getElementById("download_b");
+let dressup_final = {
+    canvas: document.getElementById("final_dress"),
+    button: document.getElementById("finish_b")
+};
 let dressup_size = {
     width: "500",
     height: "500"
@@ -60,6 +65,6 @@ let layers = {
     },
 }
 
-let the_game = new DressUp(layers, dressup_size, dressup_display, dressup_options, options_order);
+let the_game = new DressUp(layers, dressup_size, dressup_display, dressup_options, dressup_download, dressup_final, options_order);
 
 loadDressUp(the_game);

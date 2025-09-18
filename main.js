@@ -46,18 +46,16 @@ document.getElementById("back_b").addEventListener("click", function() {
     switchSection(2);
 });
 
-document.getElementById("download_b").addEventListener("click", function() {
-    // TODO: download final canvas, possibly move into DressUp
-});
-
 // This is where the magic happens
 
 class DressUp {
-    constructor(layers, size, display, options, order) {
+    constructor(layers, size, display, options, download, final, order) {
         this.layers = layers;
         this.size = size;
         this.display = display;
         this.options = options;
+        this.download = download;
+        this.final = final;
         this.order = order;
         this.images = {};
         this.canvases = {};
@@ -132,7 +130,15 @@ class DressUp {
                 });
                 break;
             case "next":
-                // TODO: Now this one!!
+                option.layers.forEach((layer, i) => {
+                    if (this.current[layer] != (this.images[layer].length - 1)) {
+                        this.current[layer]++;
+                    } else {
+                        this.current[layer] = 0;
+                    }
+                    this.canvases[layer].clearRect(0, 0, this.size.width, this.size.height);
+                    this.canvases[layer].drawImage(this.images[layer][this.current[layer]], 0, 0, this.size.width, this.size.height);
+                });
                 break;
             default:
                 console.error("Something is wrong with iteration!");
@@ -202,10 +208,39 @@ class DressUp {
         });
     }
 
+    downloadImage(self) {
+        let img = self.final.canvas.toDataURL("image/png");
+        self.download.setAttribute("download", "lil_dressup.png");
+        self.download.setAttribute("href", img);
+    }
+
+    finalize(self) {
+        self.final.canvas.setAttribute("width", this.size.width);
+        self.final.canvas.setAttribute("height", this.size.height);
+        let ctx = self.final.canvas.getContext("2d");
+
+        for (const layer in self.layers) {
+            if (self.current.hasOwnProperty(layer)) {
+                ctx.drawImage(self.images[layer][self.current[layer]], 0, 0, self.size.width, self.size.height);
+            } else {
+                self.images[layer].forEach((img, i) => {
+                    ctx.drawImage(img, 0, 0, self.size.width, self.size.height);
+                });
+            }
+        }
+
+        self.downloadImage(self);
+    }
+
     async start() {
         this.preloadImages();
         this.createCanvases();
         this.createOptions();
+
+        let self = this;
+        this.final.button.addEventListener("click", function(){
+            self.finalize(self);
+        });
 
         return false;
     }
