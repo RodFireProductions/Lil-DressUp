@@ -242,6 +242,6 @@ class DressUp {
             self.finalize(self);
         });
 
-        return false;
+        return false; // Is still loading is false :)
     }
 }

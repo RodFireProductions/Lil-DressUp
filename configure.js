@@ -16,6 +16,8 @@ let dressup_size = {
 let options_order = [
     "Hair",
     "Tail",
+    "Necklaces",
+    "Accessories",
     "Background"
 ]
 
@@ -25,26 +27,53 @@ let layers = {
         label: "Background",
         images: [
             "backgrounds/bg_01.png",
-            "backgrounds/bg_02.png"
+            "backgrounds/bg_02.png",
+            "backgrounds/bg_03.png",
+            "backgrounds/bg_04.png",
+            "backgrounds/bg_05.png",
+            "backgrounds/bg_06.png"
         ]
     },
     tail: {
         permanent: false,
         label: "Tail",
         images: [
-            "tails/tail_01.png"
+            "tails/tail_01.png",
+            "tails/tail_02.png",
+            "tails/tail_03.png"
         ]
     },
     hair_bottom: {
         permanent: false,
         images: [
-            "hairs/hair_01_back.png"
+            "hairs/hair_01_back.png",
+            "hairs/hair_02_back.png",
+            "hairs/hair_03_back.png"
         ]
     },
     body: {
         permanent: true,
         images: [
             "permanents/body.png"
+        ]
+    },
+    accessories: {
+        permanent: false,
+        label: "Accessories",
+        images: [
+            "null.png",
+            "accessories/acc_01.png",
+            "accessories/acc_02.png"
+        ]
+    },
+    necklaces: {
+        permanent: false,
+        label: "Necklaces",
+        images: [
+            "null.png",
+            "necklaces/necklace_01.png",
+            "necklaces/necklace_02.png",
+            "necklaces/necklace_03.png"
         ]
     },
     hair_top: {
@@ -54,7 +83,9 @@ let layers = {
             "hair_bottom"
         ],
         images: [
-            "hairs/hair_01_front.png"
+            "hairs/hair_01_front.png",
+            "hairs/hair_02_front.png",
+            "hairs/hair_03_front.png"
         ]
     },
     watermark: {

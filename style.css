@@ -97,17 +97,17 @@ button, .button {
         padding: 1em;
         grid-gap: .5em;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto minmax(0, 1fr);
+        grid-template-rows: auto 1fr;
         grid-template-areas: "dressup options"
-                             "dressup finish";
-
-        height: 100%;
+                             "finish options";
+        max-height: 100%;
         overflow: hidden;
     }
 
     & #canvases { grid-area: dressup; }
     & #options {
         grid-area: options;
+        min-height: 95%;
         overflow-y: auto;
         scrollbar-color: var(--3) var(--2);
     }
