@@ -1,18 +1,20 @@
 // -- Lil'Dress Up -- //
 //// Configuration ////
 
-let dressup_display = document.getElementById("canvases");
-let dressup_options = document.getElementById("options");
-let dressup_download = document.getElementById("download_b");
+let dressup_display = document.getElementById("canvases"); // The <div> for your canvases.
+let dressup_options = document.getElementById("options"); // The <div> for your options.
+let dressup_download = document.getElementById("download_b"); // The <a> that will download the final image.
 let dressup_final = {
-    canvas: document.getElementById("final_dress"),
-    button: document.getElementById("finish_b")
+    canvas: document.getElementById("final_dress"), // The <canvas> that displays the final image.
+    button: document.getElementById("finish_b") // The <button> that calls DressUp.finalize().
 };
 let dressup_size = {
     width: "500",
     height: "500"
 }
 
+// The diplay order of options.
+// These should exactly match the label of the corresponding layer.
 let options_order = [
     "Hair",
     "Tail",
@@ -21,6 +23,11 @@ let options_order = [
     "Background"
 ]
 
+// Location of image folder.
+let dressup_location = "./images/"
+
+// The bulk of the game's information.
+// This defines the different layers and their attributes.
 let layers = {
     background: {
         permanent: false,
@@ -100,6 +107,7 @@ let layers = {
     },
 }
 
-let the_game = new DressUp(layers, dressup_size, dressup_display, dressup_options, dressup_download, dressup_final, options_order);
+// Creating and loading the game :)
+let the_game = new DressUp(layers, dressup_size, dressup_display, dressup_options, dressup_download, dressup_final, options_order, dressup_location);
 
 loadDressUp(the_game);
