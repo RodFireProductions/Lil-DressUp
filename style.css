@@ -1,26 +1,26 @@
 @font-face {
     font-family: "Dongle";
-    src: Local("Dongle"),
-    url("fonts/Dongle-Regular.ttf") format("truetype");
+    src: Local("Dongle"), url("fonts/Dongle-Regular.ttf") format("truetype");
     size-adjust: 200%;
 }
 
 :root {
-    --1             : #d9a7b0; /* pink */
-    --2             : #a7cbd9; /* blue */
-    --3             : #68a0a6; /* teal */
-    --4             : #f2e0d5; /* sand */
-    --5             : #a66f6f; /* red */
+    --1: #d9a7b0; /* pink */
+    --2: #a7cbd9; /* blue */
+    --3: #68a0a6; /* teal */
+    --4: #f2e0d5; /* sand */
+    --5: #a66f6f; /* red */
 
-    --outside-bg    : var(--3);
-    --main-bg       : var(--4);
+    --outside-bg: var(--3);
+    --main-bg: var(--4);
 
-    --font-main     : "Dongle", sans-serif;
-    --font-title    : "Dongle", sans-serif;
-    --font-size     : calc(1rem + (1.2vw / 5));
+    --font-main: "Dongle", sans-serif;
+    --font-title: "Dongle", sans-serif;
+    --font-size: calc(1rem + (1.2vw / 5));
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -47,7 +47,8 @@ section {
     width: 100%;
 }
 
-button, .button {
+button,
+.button {
     padding: 0em 1em;
     border-radius: 5px;
     border: none;
@@ -55,7 +56,7 @@ button, .button {
     color: white;
     cursor: pointer;
     font-family: var(--font-main);
-    font-size: .8em;
+    font-size: 0.8em;
     text-decoration: none;
 
     &:hover {
@@ -87,7 +88,7 @@ button, .button {
     }
 
     & button {
-        font-size: .6em;
+        font-size: 0.6em;
     }
 }
 
@@ -95,16 +96,19 @@ button, .button {
     & .grid {
         display: grid;
         padding: 1em;
-        grid-gap: .5em;
+        grid-gap: 0.5em;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto 1fr;
-        grid-template-areas: "dressup options"
-                             "finish options";
+        grid-template-areas:
+            "dressup options"
+            "finish options";
         max-height: 100%;
         overflow: hidden;
     }
 
-    & #canvases { grid-area: dressup; }
+    & #canvases {
+        grid-area: dressup;
+    }
     & #options {
         grid-area: options;
         min-height: 95%;
@@ -131,8 +135,12 @@ fieldset {
         text-align: center;
     }
 
-    & button[name=previous] { grid-area: previous; }
-    & button[name=next] { grid-area: next; }
+    & button[name="previous"] {
+        grid-area: previous;
+    }
+    & button[name="next"] {
+        grid-area: next;
+    }
 }
 
 #canvases {
@@ -141,7 +149,8 @@ fieldset {
     grid-gap: 0px;
     grid-auto-flow: row;
 
-    & div, & canvas {
+    & div,
+    & canvas {
         position: relative;
         margin: 0;
         padding: 0;
