@@ -4,10 +4,6 @@ This is a template/example for making simple dress up web games.
 
 Currently only styled for desktop use.
 
-To-Do:
-- [ ] Download full quality size instead of display size, add full size properties to DressUp.size?
-- [ ] Make all `HTMLElements` passed into `DressUp` part of an object instead of individual variables?
-
 ## Running Locally
 *Lil'DressUp* is a simple static site, so all you have to do is open the `index.html` file in your browser.
 
