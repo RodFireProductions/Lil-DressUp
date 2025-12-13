@@ -17,7 +17,7 @@ Configuration for *Lil'DressUp* is basically just passing all your data game int
 
 There are a lot of comments in `lil-dressup.js` and `configure.js` to help you!
 
-### Predefined `HTMLElement`s
+### Predefined `HTMLElements`
 Predefined `HTMLElements` are required for creating a new `DressUp` object.
 These can be defined in script or your HTML file(s), like the provided example.
 
